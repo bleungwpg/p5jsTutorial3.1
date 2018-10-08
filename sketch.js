@@ -1,13 +1,25 @@
-var picture1;
+var buttonNothing;
+var buttonHoverOver;
+var buttonClick;
+var imgCatInMug;
+var button2X;
+var button2Y;
 
 function preload()
 {
+	imgCatInMug = loadImage('https://bleungwpg.github.io/p5jsTutorial3.1/CatInMug.png');
 
+	buttonClick = loadImage('https://bleungwpg.github.io/p5jsTutorial3.1/buttonClick.png');
+	buttonHoverOver = loadImage('https://bleungwpg.github.io/p5jsTutorial3.1/buttonHoverOver.png');
+	buttonNothing = loadImage('https://bleungwpg.github.io/p5jsTutorial3.1/buttonNothing.png');
 }
 
 function setup()
 {
+	createCanvas(800,600);
 
+	button2X = 1;
+	button2Y = 1;
   
 }
 
@@ -18,7 +30,7 @@ function draw()
 
 	// Example 1: easy to understand - Start
 
-	image()
+	image(imgCatInMug,10,150);
 
 	// Example 1: easy to understand - End
 
@@ -29,28 +41,19 @@ function draw()
 
 	strokeWeight(3);
 
-	if (mouseX > button2X && mouseX < button2X + 100 && mouseY > button2Y && mouseY < button2Y+50)
+
+
+	if (mouseX > button2X && mouseX < button2X + 200 && mouseY > button2Y && mouseY < button2Y+50)
 	{
-		fill(248,89,255);
+		image(buttonHoverOver,button2X,button2Y);
 		if (mouseIsPressed)
 		{
-			fill(47,247,114);
+			image(buttonClick,button2X,button2Y);
 		}
-
-		rect(button2X,button2Y,100,50);
-		textSize(16);
-		fill(255,255,255);
-		stroke(0,0,0);
-		text("Options",button2X+30-5,button2Y+30+2);
 	}
 	else
 	{
-		fill(255,113,53);
-		rect(button2X,button2Y,100,50);
-		textSize(12);
-		fill(255,255,255);
-		stroke(0,0,0);
-		text("Options",button2X+30,button2Y+30);
+		image(buttonNothing,button2X,button2Y);
 	}
 
 
